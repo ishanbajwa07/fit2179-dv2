@@ -1,0 +1,17 @@
+quarter,quarter_num,reason,trips,nights,spend
+Mar Q 2025,1,Holiday,12394.8,46861.6,15438.7
+Jun Q 2025,2,Holiday,12105.4,40017.2,13624.8
+Sep Q 2025,3,Holiday,12147.5,41044.7,14131.2
+Dec Q 2025,4,Holiday,13734.0,45362.6,15174.8
+Mar Q 2025,1,Visiting friends/relatives,10851.7,37502.5,7136.3
+Jun Q 2025,2,Visiting friends/relatives,10572.9,33422.5,6575.1
+Sep Q 2025,3,Visiting friends/relatives,10444.2,32828.5,6843.9
+Dec Q 2025,4,Visiting friends/relatives,11540.6,35925.5,7670.0
+Mar Q 2025,1,Business,4064.5,13960.5,4993.1
+Jun Q 2025,2,Business,3251.2,10079.3,3690.7
+Sep Q 2025,3,Business,2614.7,8046.6,3052.6
+Dec Q 2025,4,Business,2314.4,7034.9,2928.7
+Mar Q 2025,1,Other,1738.8,5589.3,1297.8
+Jun Q 2025,2,Other,2042.4,6157.1,1303.0
+Sep Q 2025,3,Other,2236.4,6931.7,1386.8
+Dec Q 2025,4,Other,2484.1,7653.0,1500.7
