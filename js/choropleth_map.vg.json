@@ -1,0 +1,53 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": "container",
+  "height": 380,
+  "projection": {"type": "mercator", "center": [133, -27], "scale": 700},
+  "layer": [
+    {
+      "data": {
+        "url": "js/australia_states.topojson",
+        "format": {"type": "topojson", "feature": "ne_10m_admin_1_states_provinces"}
+      },
+      "mark": {"type": "geoshape", "fill": "#e8e8e8", "stroke": "white", "strokeWidth": 1.5}
+    },
+    {
+      "data": {
+        "url": "js/australia_states.topojson",
+        "format": {"type": "topojson", "feature": "ne_10m_admin_1_states_provinces"}
+      },
+      "transform": [
+        {
+          "lookup": "properties.name",
+          "from": {
+            "data": {"url": "data/state_annual_2025.csv"},
+            "key": "state",
+            "fields": ["dom_nights_2025", "dom_spend_2025", "int_trips_2025", "dom_trips_2025"]
+          }
+        }
+      ],
+      "mark": "geoshape",
+      "encoding": {
+        "color": {
+          "field": "dom_nights_2025",
+          "type": "quantitative",
+          "scale": {"scheme": "tealblues"},
+          "legend": {
+            "title": "Visitor nights ('000)",
+            "labelFont": "Lato",
+            "titleFont": "Lato",
+            "orient": "bottom-right",
+            "gradientLength": 120
+          }
+        },
+        "tooltip": [
+          {"field": "properties.name", "type": "nominal", "title": "State / Territory"},
+          {"field": "dom_nights_2025", "type": "quantitative", "title": "Dom. visitor nights ('000)", "format": ",.1f"},
+          {"field": "dom_spend_2025", "type": "quantitative", "title": "Dom. spend ($M)", "format": ",.1f"},
+          {"field": "int_trips_2025", "type": "quantitative", "title": "Intl. visitors ('000)", "format": ",.1f"}
+        ]
+      }
+    }
+  ],
+  "config": {"font": "Lato", "view": {"stroke": null}}
+}
