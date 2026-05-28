@@ -3,22 +3,24 @@
   "width": "container",
   "height": 300,
   "data": {"url": "data/state_annual_2025.csv"},
+  "encoding": {
+    "x": {
+      "field": "dom_nights_2025",
+      "type": "quantitative",
+      "title": "Domestic visitor nights ('000)",
+      "axis": {"labelFont": "Lato", "titleFont": "Lato", "titleFontSize": 11}
+    },
+    "y": {
+      "field": "dom_spend_2025",
+      "type": "quantitative",
+      "title": "Domestic visitor spend ($M)",
+      "axis": {"labelFont": "Lato", "titleFont": "Lato", "titleFontSize": 11}
+    }
+  },
   "layer": [
     {
-      "mark": {"type": "circle", "opacity": 0.85},
+      "mark": {"type": "circle", "opacity": 0.7},
       "encoding": {
-        "x": {
-          "field": "dom_nights_2025",
-          "type": "quantitative",
-          "title": "Domestic visitor nights ('000)",
-          "axis": {"labelFont": "Lato", "titleFont": "Lato", "titleFontSize": 11}
-        },
-        "y": {
-          "field": "dom_spend_2025",
-          "type": "quantitative",
-          "title": "Domestic visitor spend ($M)",
-          "axis": {"labelFont": "Lato", "titleFont": "Lato", "titleFontSize": 11}
-        },
         "size": {
           "field": "int_trips_2025",
           "type": "quantitative",
@@ -43,18 +45,19 @@
       }
     },
     {
-      "mark": {"type": "text", "dy": -18, "fontSize": 11, "font": "Lato", "fontWeight": "bold"},
+      "mark": {"type": "text", "align": "right", "baseline": "middle", "dx": -12, "fontSize": 11, "fontStyle": "italic"},
       "encoding": {
-        "x": {"field": "dom_nights_2025", "type": "quantitative"},
-        "y": {"field": "dom_spend_2025", "type": "quantitative"},
-        "text": {
-          "field": "state",
-          "type": "nominal",
-          "condition": {"test": "datum.state == 'Australian Capital Territory' || datum.state == 'Northern Territory'", "value": ""}
-        },
-        "color": {"value": "#2c2c2c"}
+        "text": {"field": "state", "type": "nominal"},
+        "color": {"value": "black"},
+        "opacity": {
+          "condition": {
+            "test": "datum.state == 'New South Wales' || datum.state == 'Victoria' || datum.state == 'Queensland' || datum.state == 'Western Australia' || datum.state == 'South Australia' || datum.state == 'Tasmania'",
+            "value": 1
+          },
+          "value": 0
+        }
       }
     }
   ],
-  "config": {"font": "Lato", "view": {"stroke": null}, "axis": {"grid": true, "gridDash": [3, 3], "gridColor": "#eee"}}
+  "config": {"font": "Lato", "view": {"stroke": null}, "axis": {"grid": false}}
 }
