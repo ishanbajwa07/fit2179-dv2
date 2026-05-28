@@ -1,0 +1,25 @@
+state,metric,dec_q_2024,dec_q_2025,change_pct
+New South Wales,overnight_trips,10592.6,10569.7,-0.2
+Victoria,overnight_trips,8077.2,8043.5,-0.4
+Queensland,overnight_trips,6761.0,6772.2,0.2
+South Australia,overnight_trips,2067.7,2049.9,-0.9
+Western Australia,overnight_trips,2508.7,2563.0,2.2
+Tasmania,overnight_trips,796.6,757.2,-5.0
+Northern Territory,overnight_trips,221.0,214.0,-3.2
+Australian Capital Territory,overnight_trips,573.1,585.7,2.2
+New South Wales,visitor_nights,30301.1,31126.4,2.7
+Victoria,visitor_nights,21369.4,21450.0,0.4
+Queensland,visitor_nights,23176.3,23303.2,0.5
+South Australia,visitor_nights,6406.2,6426.6,0.3
+Western Australia,visitor_nights,8603.0,8805.1,2.3
+Tasmania,visitor_nights,2621.4,2613.1,-0.3
+Northern Territory,visitor_nights,885.3,841.6,-4.9
+Australian Capital Territory,visitor_nights,1571.4,1611.4,2.5
+New South Wales,spend,8737.7,8263.3,-5.4
+Victoria,spend,5897.9,5707.6,-3.2
+Queensland,spend,6917.0,6957.2,0.6
+South Australia,spend,1638.8,1733.7,5.8
+Western Australia,spend,3143.7,2867.2,-8.8
+Tasmania,spend,855.1,809.6,-5.3
+Northern Territory,spend,286.7,386.9,34.9
+Australian Capital Territory,spend,528.6,548.8,3.8
