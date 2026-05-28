@@ -3,7 +3,7 @@
   "width": "container",
   "height": 280,
   "data": {"url": "data/state_annual_2025.csv"},
-  "mark": {"type": "bar", "cornerRadiusEnd": 4},
+  "mark": "bar",
   "encoding": {
     "y": {
       "field": "state",
