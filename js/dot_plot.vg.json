@@ -1,0 +1,63 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": "container",
+  "height": 300,
+  "data": {"url": "data/domestic_comparison.csv"},
+  "transform": [
+    {"filter": "datum.metric == 'visitor_nights'"}
+  ],
+  "layer": [
+    {
+      "mark": {"type": "rule", "strokeWidth": 2.5},
+      "encoding": {
+        "y": {
+          "field": "state",
+          "type": "nominal",
+          "sort": "-dec_q_2025",
+          "title": null,
+          "axis": {"labelFont": "Lato", "labelFontSize": 12}
+        },
+        "x": {
+          "field": "dec_q_2024",
+          "type": "quantitative",
+          "title": "Visitor nights ('000) — Dec Quarter",
+          "axis": {"labelFont": "Lato", "titleFont": "Lato"}
+        },
+        "x2": {"field": "dec_q_2025"},
+        "color": {
+          "condition": {"test": "datum.dec_q_2025 > datum.dec_q_2024", "value": "#1a7a6e"},
+          "value": "#e06c56"
+        }
+      }
+    },
+    {
+      "mark": {"type": "point", "filled": true, "size": 110, "opacity": 1},
+      "encoding": {
+        "y": {"field": "state", "type": "nominal", "sort": "-dec_q_2025"},
+        "x": {"field": "dec_q_2024", "type": "quantitative"},
+        "color": {"value": "#aaaaaa"},
+        "tooltip": [
+          {"field": "state", "type": "nominal", "title": "State"},
+          {"field": "dec_q_2024", "type": "quantitative", "title": "Dec Q 2024 ('000)", "format": ",.1f"}
+        ]
+      }
+    },
+    {
+      "mark": {"type": "point", "filled": true, "size": 110, "opacity": 1},
+      "encoding": {
+        "y": {"field": "state", "type": "nominal", "sort": "-dec_q_2025"},
+        "x": {"field": "dec_q_2025", "type": "quantitative"},
+        "color": {
+          "condition": {"test": "datum.dec_q_2025 > datum.dec_q_2024", "value": "#1a7a6e"},
+          "value": "#e06c56"
+        },
+        "tooltip": [
+          {"field": "state", "type": "nominal", "title": "State"},
+          {"field": "dec_q_2025", "type": "quantitative", "title": "Dec Q 2025 ('000)", "format": ",.1f"},
+          {"field": "change_pct", "type": "quantitative", "title": "Change (%)", "format": ".1f"}
+        ]
+      }
+    }
+  ],
+  "config": {"font": "Lato", "view": {"stroke": null}, "axis": {"grid": true, "gridDash": [3, 3], "gridColor": "#eee"}}
+}
