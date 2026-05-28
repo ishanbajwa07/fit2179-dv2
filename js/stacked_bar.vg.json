@@ -3,7 +3,7 @@
   "width": "container",
   "height": 280,
   "data": {"url": "data/domestic_reason.csv"},
-  "mark": {"type": "bar", "cornerRadiusTopLeft": 3, "cornerRadiusTopRight": 3},
+  "mark": "bar",
   "encoding": {
     "x": {
       "field": "quarter",
@@ -35,5 +35,9 @@
       {"field": "spend", "type": "quantitative", "title": "Spend ($M)", "format": ",.1f"}
     ]
   },
-  "config": {"font": "Lato", "view": {"stroke": null}, "axis": {"grid": false}}
+  "config": {
+    "font": "Lato",
+    "view": {"stroke": null},
+    "axis": {"grid": false}
+  }
 }
