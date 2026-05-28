@@ -1,0 +1,58 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "data": {"url": "data/domestic_quarterly.csv"},
+  "facet": {
+    "field": "state",
+    "type": "nominal",
+    "sort": ["New South Wales","Victoria","Queensland","Western Australia","South Australia","Tasmania","Northern Territory","Australian Capital Territory"],
+    "columns": 4,
+    "header": {
+      "labelFont": "Lato",
+      "labelFontSize": 11,
+      "labelFontWeight": "bold",
+      "labelColor": "#1a3a4a"
+    }
+  },
+  "spec": {
+    "width": 155,
+    "height": 100,
+    "layer": [
+      {
+        "mark": {"type": "bar", "color": "#1a7a6e", "opacity": 0.85, "cornerRadiusTopLeft": 3, "cornerRadiusTopRight": 3},
+        "encoding": {
+          "x": {
+            "field": "quarter",
+            "type": "ordinal",
+            "sort": ["Mar Q 2025","Jun Q 2025","Sep Q 2025","Dec Q 2025"],
+            "title": null,
+            "axis": {"labelAngle": -40, "labelFontSize": 9, "labelFont": "Lato"}
+          },
+          "y": {
+            "field": "trips",
+            "type": "quantitative",
+            "title": "Trips ('000)",
+            "axis": {"labelFontSize": 9, "titleFontSize": 9, "labelFont": "Lato", "titleFont": "Lato", "tickCount": 3}
+          }
+        }
+      },
+      {
+        "mark": {"type": "text", "align": "center", "baseline": "bottom", "dy": -4, "fontSize": 9, "font": "Lato", "color": "#444"},
+        "encoding": {
+          "x": {
+            "field": "quarter",
+            "type": "ordinal",
+            "sort": ["Mar Q 2025","Jun Q 2025","Sep Q 2025","Dec Q 2025"]
+          },
+          "y": {"field": "trips", "type": "quantitative"},
+          "text": {"field": "trips", "type": "quantitative", "format": ".0f"}
+        }
+      }
+    ]
+  },
+  "config": {
+    "font": "Lato",
+    "view": {"stroke": "#d0e4e1"},
+    "facet": {"spacing": 12},
+    "axis": {"grid": false}
+  }
+}
