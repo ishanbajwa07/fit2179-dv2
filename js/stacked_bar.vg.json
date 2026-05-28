@@ -1,0 +1,39 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": "container",
+  "height": 280,
+  "data": {"url": "data/domestic_reason.csv"},
+  "mark": {"type": "bar", "cornerRadiusTopLeft": 3, "cornerRadiusTopRight": 3},
+  "encoding": {
+    "x": {
+      "field": "quarter",
+      "type": "ordinal",
+      "sort": ["Mar Q 2025","Jun Q 2025","Sep Q 2025","Dec Q 2025"],
+      "title": "Quarter (2025)",
+      "axis": {"labelFont": "Lato", "titleFont": "Lato", "labelAngle": 0}
+    },
+    "y": {
+      "field": "trips",
+      "type": "quantitative",
+      "stack": "normalize",
+      "title": "Share of domestic overnight trips",
+      "axis": {"labelFont": "Lato", "titleFont": "Lato", "format": "%", "titleFontSize": 11}
+    },
+    "color": {
+      "field": "reason",
+      "type": "nominal",
+      "scale": {
+        "domain": ["Holiday","Visiting friends/relatives","Business","Other"],
+        "range": ["#1a7a6e","#4a90d9","#e8a838","#aaaaaa"]
+      },
+      "legend": {"title": "Purpose of visit", "labelFont": "Lato", "titleFont": "Lato"}
+    },
+    "tooltip": [
+      {"field": "quarter", "type": "nominal", "title": "Quarter"},
+      {"field": "reason", "type": "nominal", "title": "Purpose"},
+      {"field": "trips", "type": "quantitative", "title": "Trips ('000)", "format": ",.1f"},
+      {"field": "spend", "type": "quantitative", "title": "Spend ($M)", "format": ",.1f"}
+    ]
+  },
+  "config": {"font": "Lato", "view": {"stroke": null}, "axis": {"grid": false}}
+}
