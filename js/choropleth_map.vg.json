@@ -22,7 +22,7 @@
           "from": {
             "data": {"url": "data/state_annual_2025.csv"},
             "key": "state",
-            "fields": ["dom_nights_2025", "dom_spend_2025", "int_trips_2025", "dom_trips_2025"]
+            "fields": ["dom_nights_2025", "dom_spend_2025", "int_trips_2025"]
           }
         }
       ],
@@ -36,8 +36,7 @@
             "title": "Visitor nights ('000)",
             "labelFont": "Lato",
             "titleFont": "Lato",
-            "orient": "bottom-right",
-            "gradientLength": 120
+            "orient": "bottom-right"
           }
         },
         "tooltip": [
