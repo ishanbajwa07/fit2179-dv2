@@ -1,0 +1,33 @@
+state,quarter,quarter_num,trips,nights,spend
+New South Wales,Mar Q 2025,1,9999.5,33044.9,8493.0
+New South Wales,Jun Q 2025,2,9483.5,27613.9,7132.5
+New South Wales,Sep Q 2025,3,9156.0,26456.7,7061.1
+New South Wales,Dec Q 2025,4,10569.7,31126.4,8263.3
+Victoria,Mar Q 2025,1,8650.6,26342.1,6759.2
+Victoria,Jun Q 2025,2,7497.1,20487.0,5393.8
+Victoria,Sep Q 2025,3,7192.0,18961.2,5108.6
+Victoria,Dec Q 2025,4,8043.5,21450.0,5707.6
+Queensland,Mar Q 2025,1,5949.9,22568.7,6984.7
+Queensland,Jun Q 2025,2,6474.6,21782.2,6556.3
+Queensland,Sep Q 2025,3,6738.3,24305.4,7184.7
+Queensland,Dec Q 2025,4,6772.2,23303.2,6957.2
+Western Australia,Mar Q 2025,1,2503.5,9453.9,2835.3
+Western Australia,Jun Q 2025,2,2464.5,8586.5,2706.5
+Western Australia,Sep Q 2025,3,2420.9,8562.1,2789.4
+Western Australia,Dec Q 2025,4,2563.0,8805.1,2867.2
+South Australia,Mar Q 2025,1,2099.9,7486.3,1787.6
+South Australia,Jun Q 2025,2,1911.3,6216.2,1531.7
+South Australia,Sep Q 2025,3,1751.0,5428.1,1440.0
+South Australia,Dec Q 2025,4,2049.9,6426.6,1733.7
+Tasmania,Mar Q 2025,1,869.8,3435.5,963.6
+Tasmania,Jun Q 2025,2,698.9,2502.0,712.8
+Tasmania,Sep Q 2025,3,643.0,2127.2,609.0
+Tasmania,Dec Q 2025,4,757.2,2613.1,809.6
+Northern Territory,Mar Q 2025,1,177.6,709.2,246.9
+Northern Territory,Jun Q 2025,2,275.6,1097.5,462.5
+Northern Territory,Sep Q 2025,3,327.5,1580.9,629.0
+Northern Territory,Dec Q 2025,4,214.0,841.6,386.9
+Australian Capital Territory,Mar Q 2025,1,546.3,1652.2,552.2
+Australian Capital Territory,Jun Q 2025,2,531.3,1493.3,500.4
+Australian Capital Territory,Sep Q 2025,3,588.2,1529.5,507.1
+Australian Capital Territory,Dec Q 2025,4,585.7,1611.4,548.8
