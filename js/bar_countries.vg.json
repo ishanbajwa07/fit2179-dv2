@@ -1,0 +1,43 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": "container",
+  "height": 320,
+  "data": {"url": "data/international_by_country.csv"},
+  "transform": [
+    {"filter": "datum.country != 'Thailand' && datum.country != 'Vietnam' && datum.country != 'Philippines' && datum.country != 'Taiwan' && datum.country != 'Canada' && datum.country != 'Germany' && datum.country != 'France' && datum.country != 'Malaysia'"}
+  ],
+  "layer": [
+    {
+      "mark": {"type": "bar", "height": 18, "color": "#cfd8dc", "cornerRadiusEnd": 3},
+      "encoding": {
+        "y": {
+          "field": "country",
+          "type": "nominal",
+          "sort": "-trips_2025",
+          "title": null,
+          "axis": {"labelFont": "Lato", "labelFontSize": 12}
+        },
+        "x": {
+          "field": "trips_2024",
+          "type": "quantitative",
+          "title": "Visitors ('000)",
+          "axis": {"labelFont": "Lato", "titleFont": "Lato"}
+        }
+      }
+    },
+    {
+      "mark": {"type": "bar", "height": 9, "color": "#1a7a6e", "cornerRadiusEnd": 3},
+      "encoding": {
+        "y": {"field": "country", "type": "nominal", "sort": "-trips_2025"},
+        "x": {"field": "trips_2025", "type": "quantitative"},
+        "tooltip": [
+          {"field": "country", "type": "nominal", "title": "Country"},
+          {"field": "trips_2024", "type": "quantitative", "title": "2024 visitors ('000)", "format": ",.1f"},
+          {"field": "trips_2025", "type": "quantitative", "title": "2025 visitors ('000)", "format": ",.1f"},
+          {"field": "spend_2025", "type": "quantitative", "title": "Spend in Aus ($M)", "format": ",.1f"}
+        ]
+      }
+    }
+  ],
+  "config": {"font": "Lato", "view": {"stroke": null}, "axis": {"grid": false}}
+}
