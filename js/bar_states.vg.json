@@ -37,7 +37,7 @@
     {
       "mark": {"type": "text", "align": "left", "dx": 5, "fontSize": 10, "fontStyle": "italic"},
       "encoding": {
-        "y": {"field": "state", "type": "nominal", "sort": "-x"},
+        "y": {"field": "state", "type": "nominal", "sort": "-dom_nights_2025"},
         "x": {"field": "dom_nights_2025", "type": "quantitative"},
         "text": {"field": "dom_nights_2025", "type": "quantitative", "format": ",.0f"},
         "color": {"value": "#333"}
