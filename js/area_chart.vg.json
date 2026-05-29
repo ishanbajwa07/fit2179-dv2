@@ -53,8 +53,8 @@
           "aggregate": "sum"
         },
         "text": {
-          "condition": {"test": "datum.quarter == 'Dec Q 2025'", "value": "▲ Summer peak"},
-          "value": "▼ Winter trough"
+          "condition": {"test": "datum.quarter == 'Dec Q 2025'", "value": "▲ Summer peak: 31.6M trips"},
+          "value": "▼ Winter trough: 28.8M trips"
         },
         "color": {"value": "#1a3a4a"}
       }
