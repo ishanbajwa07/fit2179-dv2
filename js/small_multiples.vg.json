@@ -43,7 +43,7 @@
           "titleFontSize": 9,
           "labelFont": "Lato",
           "titleFont": "Lato",
-          "tickCount": 3
+          "tickCount": 5
         }
       },
       "tooltip": [
@@ -56,7 +56,7 @@
   "config": {
     "font": "Lato",
     "view": {"stroke": "#d0e4e1"},
-    "facet": {"spacing": 16},
+    "facet": {"spacing": 20},
     "axis": {"grid": false}
   }
 }
