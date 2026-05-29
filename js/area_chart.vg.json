@@ -32,6 +32,11 @@
           },
           "legend": {"title": "State / Territory", "labelFont": "Lato", "titleFont": "Lato", "orient": "right"}
         },
+        "order": {
+          "field": "trips",
+          "type": "quantitative",
+          "sort": "descending"
+        },
         "tooltip": [
           {"field": "state", "type": "nominal", "title": "State"},
           {"field": "quarter", "type": "nominal", "title": "Quarter"},
