@@ -57,6 +57,22 @@
           {"field": "change_pct", "type": "quantitative", "title": "Change (%)", "format": ".1f"}
         ]
       }
+    },
+    {
+      "mark": {"type": "text", "align": "left", "dx": 8, "fontSize": 10, "fontStyle": "italic"},
+      "encoding": {
+        "y": {"field": "state", "type": "nominal", "sort": "-dec_q_2025"},
+        "x": {"field": "dec_q_2025", "type": "quantitative"},
+        "text": {"field": "change_pct", "type": "quantitative", "format": "+.1f"},
+        "color": {
+          "condition": {"test": "datum.dec_q_2025 > datum.dec_q_2024", "value": "#1a7a6e"},
+          "value": "#e06c56"
+        },
+        "opacity": {
+          "condition": {"test": "abs(datum.change_pct) > 2", "value": 1},
+          "value": 0
+        }
+      }
     }
   ],
   "config": {"font": "Lato", "view": {"stroke": null}, "axis": {"grid": true}}
