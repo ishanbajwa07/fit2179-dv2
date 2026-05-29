@@ -1,6 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "data": {"url": "data/domestic_quarterly.csv"},
+  "resolve": {"scale": {"y": "independent"}},
   "facet": {
     "field": "state",
     "type": "nominal",
