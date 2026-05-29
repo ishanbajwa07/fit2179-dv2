@@ -10,7 +10,7 @@
         "y": {
           "field": "state",
           "type": "nominal",
-          "sort": "-x",
+          "sort": "-dom_nights_2025",
           "title": null,
           "axis": {"labelFont": "Lato", "labelFontSize": 12}
         },
