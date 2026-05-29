@@ -1,113 +1,223 @@
-{
-  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "data": {"url": "data/domestic_quarterly.csv"},
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Australia's Tourism Story</title>
 
-  "title": {
-    "text": "Domestic Overnight Trips by Quarter — All States (2025)",
-    "anchor": "start",
-    "font": "Lato",
-    "fontSize": 20,
-    "fontWeight": "bold",
-    "color": "#1a3a4a",
-    "offset": 20
-  },
+  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css">
+  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/grids-responsive-min.css">
 
-  "resolve": {"scale": {"y": "independent"}},
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
 
-  "facet": {
-    "field": "state",
-    "type": "nominal",
-    "title": null,
-    "columns": 4,
-    "sort": [
-      "New South Wales",
-      "Victoria",
-      "Queensland",
-      "Western Australia",
-      "South Australia",
-      "Tasmania",
-      "Northern Territory",
-      "Australian Capital Territory"
-    ],
-    "header": {
-      "labelFont": "Lato",
-      "labelFontSize": 12,
-      "labelFontWeight": "bold",
-      "labelColor": "#1a3a4a",
-      "labelLimit": 260,
-      "labelPadding": 12
-    }
-  },
+  <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
 
-  "spec": {
-    "width": 210,
-    "height": 210,
+  <link rel="stylesheet" href="css/styles.css">
+</head>
 
-    "mark": {
-      "type": "bar",
-      "color": "#2f8f83",
-      "opacity": 0.9,
-      "cornerRadiusTopLeft": 2,
-      "cornerRadiusTopRight": 2
-    },
+<body>
 
-    "encoding": {
-      "x": {
-        "field": "quarter",
-        "type": "ordinal",
-        "sort": ["Mar Q 2025", "Jun Q 2025", "Sep Q 2025", "Dec Q 2025"],
-        "title": null,
-        "axis": {
-          "labelAngle": 0,
-          "labelFontSize": 9,
-          "labelFont": "Lato",
-          "labelLineHeight": 11,
-          "labelExpr": "replace(datum.label, ' Q 2025', '\\nQ 2025')",
-          "labelPadding": 6,
-          "ticks": false,
-          "domain": false
-        }
-      },
+  <!-- HERO -->
+  <div class="section-hero">
+    <div class="container">
+      <h1 class="hero-title">Australia's Tourism Story</h1>
+      <p class="hero-subtitle">Who visits, where they go, how much they spend — a data-driven look at Australian tourism in 2025</p>
+      <div class="pure-g hero-stats">
+        <div class="pure-u-1 pure-u-md-1-4">
+          <div class="stat-card">
+            <span class="stat-number">113M</span>
+            <span class="stat-label">Domestic overnight trips in 2025</span>
+          </div>
+        </div>
+        <div class="pure-u-1 pure-u-md-1-4">
+          <div class="stat-card">
+            <span class="stat-number">8.3M</span>
+            <span class="stat-label">International visitors in 2025</span>
+          </div>
+        </div>
+        <div class="pure-u-1 pure-u-md-1-4">
+          <div class="stat-card">
+            <span class="stat-number">$106.7B</span>
+            <span class="stat-label">Domestic visitor spend in 2025</span>
+          </div>
+        </div>
+        <div class="pure-u-1 pure-u-md-1-4">
+          <div class="stat-card">
+            <span class="stat-number">$39.2B</span>
+            <span class="stat-label">International spend in Australia</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-      "y": {
-        "field": "trips",
-        "type": "quantitative",
-        "title": "Trips ('000)",
-        "axis": {
-          "labelFontSize": 9,
-          "titleFontSize": 10,
-          "labelFont": "Lato",
-          "titleFont": "Lato",
-          "tickCount": 4,
-          "grid": true,
-          "gridOpacity": 0.25,
-          "domain": false,
-          "ticks": false
-        }
-      },
+  <!-- SECTION 1: NATIONAL OVERVIEW -->
+  <div class="section-light">
+    <div class="container">
+      <h2 class="section-title">1. Australia's domestic tourism in 2025 — four quarters, one story</h2>
+      <p class="section-desc">Across 2025, Australians took over 113 million domestic overnight trips. New South Wales and Victoria dominate in trip volume, while Queensland remains a major contributor across all quarters. Domestic travel softens through the middle of the year, reaching its lowest point in the September quarter, before rising to a December summer peak.</p>
+      <div class="pure-g">
+        <div class="pure-u-1">
+          <div class="chart-wrap">
+            <div id="area_chart"></div>
+          </div>
+        </div>
+      </div>
+      <p class="chart-insight">&#128269; <strong>Key insight:</strong> Domestic overnight trips hit their lowest point in the September quarter — the heart of the Australian winter — before surging to a December peak as summer holidays begin. NSW contributes the largest share across every quarter, while Queensland shows the most stable volume, reflecting its year-round appeal.</p>
+    </div>
+  </div>
 
-      "tooltip": [
-        {"field": "state", "type": "nominal", "title": "State"},
-        {"field": "quarter", "type": "nominal", "title": "Quarter"},
-        {"field": "trips", "type": "quantitative", "title": "Trips ('000)", "format": ",.1f"}
-      ]
-    }
-  },
+  <!-- SECTION 2: MAP + BAR -->
+  <div class="section-teal">
+    <div class="container">
+      <h2 class="section-title">2. Not all states share equally in tourism</h2>
+      <p class="section-desc">New South Wales and Victoria attract the most domestic visitors in absolute terms, but Queensland punches above its weight in total visitor nights — reflecting longer average stays driven by its coastal and tropical destinations. The Northern Territory and Tasmania remain small in volume despite their strong tourist appeal.</p>
+      <div class="pure-g">
+        <div class="pure-u-1 pure-u-md-1-2">
+          <div class="chart-wrap">
+            <p class="chart-label">Domestic visitor nights by state — 2025 total</p>
+            <div id="choropleth_map"></div>
+          </div>
+        </div>
+        <div class="pure-u-1 pure-u-md-1-2">
+          <div class="chart-wrap">
+            <p class="chart-label">States ranked by domestic visitor nights</p>
+            <div id="bar_states"></div>
+          </div>
+        </div>
+      </div>
+      <p class="chart-insight">&#128269; <strong>Key insight:</strong> NSW, VIC and QLD together account for around three-quarters of all domestic visitor nights in 2025. Western Australia's visitor nights are nearly double South Australia's despite similar geographical remoteness, reflecting Perth's stronger domestic air connectivity.</p>
+    </div>
+  </div>
 
-  "spacing": {
-    "row": 45,
-    "column": 35
-  },
+  <!-- SECTION 3: INTERNATIONAL MAP + BAR -->
+  <div class="section-light">
+    <div class="container">
+      <h2 class="section-title">3. Asia dominates international arrivals — but spend per visitor tells a different story</h2>
+      <p class="section-desc">New Zealand sends the most visitors to Australia by volume, but China generates the highest spend per visitor — over $11,000 per trip compared to around $1,800 for New Zealand visitors. Circle size shows visitor volume; colour intensity shows spend per visitor, directly revealing which markets are the most valuable. The United Kingdom recorded the strongest growth between 2024 and 2025, rising 19%.</p>
+      <div class="pure-g">
+        <div class="pure-u-1 pure-u-md-1-2">
+          <div class="chart-wrap">
+            <p class="chart-label">International visitor origins — circle size = visitor volume, colour = spend per visitor</p>
+            <div id="symbol_map"></div>
+          </div>
+        </div>
+        <div class="pure-u-1 pure-u-md-1-2">
+          <div class="chart-wrap">
+            <p class="chart-label">Top source markets: 2024 vs 2025</p>
+            <p class="chart-hint">Light bar = 2024, dark bar = 2025. Labels show % growth.</p>
+            <div id="bar_countries"></div>
+          </div>
+        </div>
+      </div>
+      <p class="chart-insight">&#128269; <strong>Key insight:</strong> China's visitor numbers grew 17.5% from 2024 to 2025 — the largest absolute increase of any market — while its spend per visitor remains the highest of any country, signalling that returning Chinese visitors are staying longer and spending significantly more per trip.</p>
+    </div>
+  </div>
 
-  "config": {
-    "font": "Lato",
-    "background": "white",
-    "view": {
-      "stroke": "#d8e8e5"
-    },
-    "axis": {
-      "labelColor": "#263238",
-      "titleColor": "#263238"
-    }
-  }
-}
+  <!-- SECTION 4: COORDINATED VIEWS -->
+  <div class="section-sand">
+    <div class="container">
+      <h2 class="section-title">4. State by state — how domestic travel varied across 2025</h2>
+      <p class="section-desc">Not all states follow the same seasonal rhythm. Use the dropdown below to select a state — the top chart highlights it while the detail chart reveals how its visitor spending pattern compares to its trip volume pattern. Queensland and the Northern Territory peak in opposite seasons to the southern states.</p>
+      <div class="pure-g">
+        <div class="pure-u-1">
+          <div class="chart-wrap">
+            <div id="overview_detail"></div>
+            <p class="chart-hint">&#9757; Use the "Select a state" dropdown below to update both charts</p>
+          </div>
+        </div>
+      </div>
+      <p class="chart-insight">&#128269; <strong>Key insight:</strong> The Northern Territory peaks strongly in the September quarter — its dry season — while NSW and Victoria peak in March as summer holidays wind down. Queensland is unusually consistent across all four quarters, reflecting its year-round tourism appeal.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 5: BUBBLE + STACKED BAR -->
+  <div class="section-teal">
+    <div class="container">
+      <h2 class="section-title">5. More visitors does not always mean more spend</h2>
+      <p class="section-desc">Visitor volume and spend are strongly correlated, but notable exceptions exist. Queensland generates more spend than Victoria despite recording fewer visitor nights — suggesting higher per-night expenditure driven by holiday spending. Bubble size shows the scale of international visitors to each state, adding a third dimension to the domestic picture.</p>
+      <div class="pure-g">
+        <div class="pure-u-1 pure-u-md-1-2">
+          <div class="chart-wrap">
+            <p class="chart-label">Domestic visitor nights vs spend — bubble size = international visitors</p>
+            <div id="bubble_plot"></div>
+          </div>
+        </div>
+        <div class="pure-u-1 pure-u-md-1-2">
+          <div class="chart-wrap">
+            <p class="chart-label">Purpose of domestic visit by quarter — normalised share</p>
+            <div id="stacked_bar"></div>
+          </div>
+        </div>
+      </div>
+      <p class="chart-insight">&#128269; <strong>Key insight:</strong> Holiday travel dominates domestic overnight trips in every quarter. Business travel forms a noticeably smaller share in the September and December quarters, as corporate activity slows over the Australian winter and festive season — while holiday travel holds steady across the year.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 6: DOT PLOT + SMALL MULTIPLES (vertical stack) -->
+  <div class="section-light">
+    <div class="container">
+      <h2 class="section-title">6. Year on year and state by state — the detail behind the numbers</h2>
+      <p class="section-desc">Comparing December Quarter 2024 to December Quarter 2025 reveals that most states held steady or grew slightly in visitor nights, but spending patterns diverged. The small multiples below show each state's full quarterly rhythm across 2025 — making seasonal differences immediately visible at a glance.</p>
+
+      <div class="pure-g">
+        <div class="pure-u-1">
+          <div class="chart-wrap">
+            <p class="chart-label">Visitor nights: Dec Q 2024 vs Dec Q 2025 — teal = growth, coral = decline</p>
+            <div id="dot_plot"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pure-g" style="margin-top: 24px;">
+        <div class="pure-u-1">
+          <div class="chart-wrap">
+            <p class="chart-label">Domestic overnight trips by quarter — all states (2025)</p>
+            <div id="small_multiples"></div>
+          </div>
+        </div>
+      </div>
+
+      <p class="chart-insight">&#128269; <strong>Key insight:</strong> NSW grew its December quarter visitor nights by 2.7% year on year while Western Australia also gained ground. The Northern Territory recorded the sharpest decline at -4.9%, which the small multiples confirm — its September quarter is far stronger, suggesting December visitors are shifting to other warm-weather destinations.</p>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="section-footer">
+    <div class="container">
+      <div class="pure-g">
+        <div class="pure-u-1 pure-u-md-1-2">
+          <h4>Data sources</h4>
+          <p>
+            Tourism Research Australia — <em>Quarterly Domestic Statistics, December Quarter 2025;</em> National Visitor Survey (NVS). Overnight trips, visitor nights and regional expenditure by state/territory.<br>
+            <a href="https://www.tra.gov.au/en/domestic/domestic-tourism-results" target="_blank">www.tra.gov.au/en/domestic/domestic-tourism-results</a>
+          </p>
+          <p>
+            Tourism Research Australia — <em>International Visitor Survey Results, December Quarter 2025.</em> Trips, nights and spend by country of residence; trips, nights and regional expenditure by state/territory.<br>
+            <a href="https://www.tra.gov.au/en/international/international-tourism-results" target="_blank">www.tra.gov.au/en/international/international-tourism-results</a>
+          </p>
+          <p>
+            Natural Earth Data — Admin 1 States and Provinces, 1:10m resolution. Used for Australian state boundary map.<br>
+            <a href="https://www.naturalearthdata.com/downloads/10m-cultural-vectors/" target="_blank">naturalearthdata.com</a>
+          </p>
+        </div>
+        <div class="pure-u-1 pure-u-md-1-2">
+          <h4>About this visualisation</h4>
+          <p>Created by <strong>Ishan</strong> for FIT2179 Data Visualisation 2, Monash University, Semester 1 2026.</p>
+          <p>
+            AI tools (Claude by Anthropic) were used in the following limited capacity: improving grammar and sentence formation in written text, assisting with understanding studio workshop materials and Vega-Lite concepts, and generating Vega-Lite JSON code structures as a starting point. All data selection, analytical interpretations, design decisions, visual storytelling, and conclusions are my own work.
+          </p>
+          <p>Built with Vega-Lite v5, Pure.css, and hosted on GitHub Pages.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/vega_lite_vis.js"></script>
+
+</body>
+</html>
