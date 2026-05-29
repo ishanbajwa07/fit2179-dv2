@@ -1,19 +1,23 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "data": {"url": "data/domestic_quarterly.csv"},
+  "params": [
+    {
+      "name": "state_select",
+      "value": "New South Wales",
+      "bind": {
+        "input": "select",
+        "options": ["New South Wales","Victoria","Queensland","Western Australia","South Australia","Tasmania","Northern Territory","Australian Capital Territory"],
+        "name": "Select a state: "
+      }
+    }
+  ],
   "vconcat": [
     {
       "width": "container",
       "height": 220,
-      "title": "Click a state in the legend to see its quarterly detail below",
+      "title": "All states — selected state highlighted",
       "mark": "bar",
-      "params": [
-        {
-          "name": "state_highlight",
-          "select": {"type": "point", "fields": ["state"]},
-          "bind": "legend"
-        }
-      ],
       "encoding": {
         "x": {
           "field": "quarter",
@@ -39,8 +43,8 @@
           "legend": {"title": "State / Territory", "labelFont": "Lato", "titleFont": "Lato"}
         },
         "opacity": {
-          "condition": {"param": "state_highlight", "value": 1},
-          "value": 0.2
+          "condition": {"test": "datum.state == state_select", "value": 1},
+          "value": 0.25
         },
         "tooltip": [
           {"field": "state", "type": "nominal", "title": "State"},
@@ -53,7 +57,7 @@
       "width": "container",
       "height": 160,
       "title": "Selected state — visitor nights by quarter",
-      "transform": [{"filter": {"param": "state_highlight", "empty": false}}],
+      "transform": [{"filter": "datum.state == state_select"}],
       "mark": "bar",
       "encoding": {
         "x": {
@@ -69,15 +73,7 @@
           "title": "Visitor nights ('000)",
           "axis": {"labelFont": "Lato", "titleFont": "Lato"}
         },
-        "color": {
-          "field": "state",
-          "type": "nominal",
-          "scale": {
-            "domain": ["New South Wales","Victoria","Queensland","Western Australia","South Australia","Tasmania","Northern Territory","Australian Capital Territory"],
-            "range": ["#1a7a6e","#4a90d9","#e8a838","#7b5ea7","#e06c56","#5da05d","#c96fbf","#aaaaaa"]
-          },
-          "legend": null
-        },
+        "color": {"value": "#1a7a6e"},
         "tooltip": [
           {"field": "state", "type": "nominal", "title": "State"},
           {"field": "quarter", "type": "nominal", "title": "Quarter"},
