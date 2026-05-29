@@ -10,14 +10,13 @@
     "columns": 4,
     "header": {
       "labelFont": "Lato",
-      "labelFontSize": 11,
+      "labelFontSize": 12,
       "labelFontWeight": "bold",
-      "labelColor": "#1a3a4a",
-      "labelLimit": 200
+      "labelColor": "#1a3a4a"
     }
   },
   "spec": {
-    "width": 170,
+    "width": 230,
     "height": 120,
     "mark": {"type": "bar", "color": "#1a7a6e", "opacity": 0.85},
     "encoding": {
@@ -26,24 +25,18 @@
         "type": "ordinal",
         "sort": ["Mar Q 2025","Jun Q 2025","Sep Q 2025","Dec Q 2025"],
         "title": null,
-        "axis": {
-          "labelAngle": 0,
-          "labelFontSize": 8,
-          "labelFont": "Lato",
-          "labelLineHeight": 12,
-          "labelExpr": "split(datum.label, ' 2025')[0] + '\\n2025'"
-        }
+        "axis": {"labelAngle": -30, "labelFontSize": 10, "labelFont": "Lato"}
       },
       "y": {
         "field": "trips",
         "type": "quantitative",
         "title": "Trips ('000)",
         "axis": {
-          "labelFontSize": 8,
-          "titleFontSize": 9,
+          "labelFontSize": 10,
+          "titleFontSize": 10,
           "labelFont": "Lato",
           "titleFont": "Lato",
-          "tickCount": 3
+          "tickCount": 4
         }
       },
       "tooltip": [
@@ -56,7 +49,7 @@
   "config": {
     "font": "Lato",
     "view": {"stroke": "#d0e4e1"},
-    "facet": {"spacing": 16},
+    "facet": {"spacing": 18},
     "axis": {"grid": false}
   }
 }
