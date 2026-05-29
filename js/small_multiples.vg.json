@@ -13,12 +13,12 @@
       "labelFontSize": 11,
       "labelFontWeight": "bold",
       "labelColor": "#1a3a4a",
-      "labelLimit": 200
+      "labelLimit": 250
     }
   },
   "spec": {
     "width": 220,
-    "height": 200,
+    "height": 250,
     "mark": {"type": "bar", "color": "#1a7a6e", "opacity": 0.85},
     "encoding": {
       "x": {
@@ -31,7 +31,7 @@
           "labelFontSize": 8,
           "labelFont": "Lato",
           "labelLineHeight": 12,
-          "labelExpr": "split(datum.label, ' 2025')[0] + '\\n2025'"
+          "labelExpr": "replace(datum.label, ' 2025', '\\n2025')"
         }
       },
       "y": {
