@@ -2,12 +2,12 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "data": {"url": "data/domestic_quarterly.csv"},
   "resolve": {"scale": {"y": "independent"}},
+  "columns": 4,
   "facet": {
     "field": "state",
     "type": "nominal",
     "title": null,
     "sort": ["New South Wales","Victoria","Queensland","Western Australia","South Australia","Tasmania","Northern Territory","Australian Capital Territory"],
-    "columns": 4,
     "header": {
       "labelFont": "Lato",
       "labelFontSize": 12,
