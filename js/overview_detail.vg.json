@@ -5,12 +5,11 @@
     {
       "width": "container",
       "height": 220,
-      "title": "Click a state in the legend to isolate its pattern",
+      "title": "Click a state in the legend to see its quarterly detail below",
       "mark": "bar",
       "params": [
         {
           "name": "state_highlight",
-          "value": [{"state": "New South Wales"}],
           "select": {"type": "point", "fields": ["state"]},
           "bind": "legend"
         }
@@ -41,7 +40,7 @@
         },
         "opacity": {
           "condition": {"param": "state_highlight", "value": 1},
-          "value": 0.15
+          "value": 0.2
         },
         "tooltip": [
           {"field": "state", "type": "nominal", "title": "State"},
@@ -53,8 +52,8 @@
     {
       "width": "container",
       "height": 160,
-      "title": "Selected state — visitor nights and spend by quarter",
-      "transform": [{"filter": {"param": "state_highlight"}}],
+      "title": "Selected state — visitor nights by quarter",
+      "transform": [{"filter": {"param": "state_highlight", "empty": false}}],
       "mark": "bar",
       "encoding": {
         "x": {
