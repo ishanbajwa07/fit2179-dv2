@@ -16,7 +16,7 @@
     }
   },
   "spec": {
-    "width": 155,
+    "width": 220,
     "height": 100,
     "mark": {"type": "bar", "color": "#1a7a6e", "opacity": 0.85},
     "encoding": {
