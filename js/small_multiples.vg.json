@@ -1,51 +1,91 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "data": {"url": "data/domestic_quarterly.csv"},
+
+  "title": {
+    "text": "Domestic Overnight Trips by Quarter — All States (2025)",
+    "anchor": "start",
+    "font": "Lato",
+    "fontSize": 20,
+    "fontWeight": "bold",
+    "color": "#1a3a4a",
+    "offset": 20
+  },
+
   "resolve": {"scale": {"y": "independent"}},
+
   "facet": {
     "field": "state",
     "type": "nominal",
     "title": null,
-    "sort": ["New South Wales","Victoria","Queensland","Western Australia","South Australia","Tasmania","Northern Territory","Australian Capital Territory"],
     "columns": 4,
+    "sort": [
+      "New South Wales",
+      "Victoria",
+      "Queensland",
+      "Western Australia",
+      "South Australia",
+      "Tasmania",
+      "Northern Territory",
+      "Australian Capital Territory"
+    ],
     "header": {
       "labelFont": "Lato",
-      "labelFontSize": 11,
+      "labelFontSize": 12,
       "labelFontWeight": "bold",
       "labelColor": "#1a3a4a",
-      "labelLimit": 250
+      "labelLimit": 260,
+      "labelPadding": 12
     }
   },
+
   "spec": {
-    "width": 220,
-    "height": 250,
-    "mark": {"type": "bar", "color": "#1a7a6e", "opacity": 0.85},
+    "width": 210,
+    "height": 210,
+
+    "mark": {
+      "type": "bar",
+      "color": "#2f8f83",
+      "opacity": 0.9,
+      "cornerRadiusTopLeft": 2,
+      "cornerRadiusTopRight": 2
+    },
+
     "encoding": {
       "x": {
         "field": "quarter",
         "type": "ordinal",
-        "sort": ["Mar Q 2025","Jun Q 2025","Sep Q 2025","Dec Q 2025"],
+        "sort": ["Mar Q 2025", "Jun Q 2025", "Sep Q 2025", "Dec Q 2025"],
         "title": null,
         "axis": {
           "labelAngle": 0,
-          "labelFontSize": 8,
+          "labelFontSize": 9,
           "labelFont": "Lato",
-          "labelLineHeight": 12,
-          "labelExpr": "replace(datum.label, ' 2025', '\\n2025')"
+          "labelLineHeight": 11,
+          "labelExpr": "replace(datum.label, ' Q 2025', '\\nQ 2025')",
+          "labelPadding": 6,
+          "ticks": false,
+          "domain": false
         }
       },
+
       "y": {
         "field": "trips",
         "type": "quantitative",
         "title": "Trips ('000)",
         "axis": {
-          "labelFontSize": 8,
-          "titleFontSize": 9,
+          "labelFontSize": 9,
+          "titleFontSize": 10,
           "labelFont": "Lato",
           "titleFont": "Lato",
-          "tickCount": 5
+          "tickCount": 4,
+          "grid": true,
+          "gridOpacity": 0.25,
+          "domain": false,
+          "ticks": false
         }
       },
+
       "tooltip": [
         {"field": "state", "type": "nominal", "title": "State"},
         {"field": "quarter", "type": "nominal", "title": "Quarter"},
@@ -53,10 +93,21 @@
       ]
     }
   },
+
+  "spacing": {
+    "row": 45,
+    "column": 35
+  },
+
   "config": {
     "font": "Lato",
-    "view": {"stroke": "#d0e4e1"},
-    "facet": {"spacing": 20},
-    "axis": {"grid": false}
+    "background": "white",
+    "view": {
+      "stroke": "#d8e8e5"
+    },
+    "axis": {
+      "labelColor": "#263238",
+      "titleColor": "#263238"
+    }
   }
 }
