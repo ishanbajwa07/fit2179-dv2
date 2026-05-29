@@ -59,7 +59,7 @@
   <div class="section-light">
     <div class="container">
       <h2 class="section-title">1. Australia's domestic tourism in 2025 — four quarters, one story</h2>
-      <p class="chart-insight">&#128269; <strong>Key insight:</strong> Domestic overnight trips hit their lowest point in the September quarter — the heart of the Australian winter — before surging to a December peak as summer holidays begin. NSW contributes the largest share across every quarter.</p>
+      <p class="section-desc">Across 2025, Australians took over 113 million domestic overnight trips. New South Wales and Victoria dominate in trip volume, while Queensland remains a major contributor across all quarters. Domestic travel softens through the middle of the year, reaching its lowest point in the September quarter, before rising to a December summer peak.</p>
       <div class="pure-g">
         <div class="pure-u-1">
           <div class="chart-wrap">
@@ -67,7 +67,7 @@
           </div>
         </div>
       </div>
-      <p class="chart-insight">&#128269; <strong>Key insight:</strong> NSW consistently contributes the largest share of domestic overnight trips across all four quarters, but Queensland shows the most stable quarterly volume — suggesting a broad year-round appeal rather than a single seasonal peak.</p>
+      <p class="chart-insight">&#128269; <strong>Key insight:</strong> Domestic overnight trips hit their lowest point in the September quarter — the heart of the Australian winter — before surging to a December peak as summer holidays begin. NSW contributes the largest share across every quarter, while Queensland shows the most stable volume, reflecting its year-round appeal.</p>
     </div>
   </div>
 
@@ -90,7 +90,7 @@
           </div>
         </div>
       </div>
-      <p class="chart-insight">&#128269; <strong>Key insight:</strong> NSW, VIC and QLD together account for over 75% of all domestic visitor nights in 2025. Western Australia's visitor nights are nearly double South Australia's despite similar geographical remoteness, reflecting Perth's stronger domestic air connectivity.</p>
+      <p class="chart-insight">&#128269; <strong>Key insight:</strong> NSW, VIC and QLD together account for around three-quarters of all domestic visitor nights in 2025. Western Australia's visitor nights are nearly double South Australia's despite similar geographical remoteness, reflecting Perth's stronger domestic air connectivity.</p>
     </div>
   </div>
 
@@ -102,18 +102,19 @@
       <div class="pure-g">
         <div class="pure-u-1 pure-u-md-1-2">
           <div class="chart-wrap">
-            <p class="chart-label">International visitor origins — circle size = visitor volume</p>
+            <p class="chart-label">International visitor origins — circle size = visitor volume, colour = spend per visitor</p>
             <div id="symbol_map"></div>
           </div>
         </div>
         <div class="pure-u-1 pure-u-md-1-2">
           <div class="chart-wrap">
-            <p class="chart-label">Top source markets — 2024 vs 2025 (light bar = 2024, dark bar = 2025)</p>
+            <p class="chart-label">Top source markets: 2024 vs 2025</p>
+            <p class="chart-hint">Light bar = 2024, dark bar = 2025. Labels show % growth.</p>
             <div id="bar_countries"></div>
           </div>
         </div>
       </div>
-      <p class="chart-insight">&#128269; <strong>Key insight:</strong> China's visitor numbers grew 17.5% from 2024 to 2025 — the largest absolute increase of any market — while its spend in Australia jumped nearly 40%, signalling that returning Chinese visitors are staying longer and spending significantly more per trip.</p>
+      <p class="chart-insight">&#128269; <strong>Key insight:</strong> China's visitor numbers grew 17.5% from 2024 to 2025 — the largest absolute increase of any market — while its spend per visitor remains the highest of any country, signalling that returning Chinese visitors are staying longer and spending significantly more per trip.</p>
     </div>
   </div>
 
@@ -153,29 +154,34 @@
           </div>
         </div>
       </div>
-      <p class="chart-insight">&#128269; <strong>Key insight:</strong> Holiday travel dominates domestic overnight trips in every quarter, but business travel collapses in the September and December quarters — falling to less than 8% of trips — as corporate activity slows over the Australian winter and festive season.</p>
+      <p class="chart-insight">&#128269; <strong>Key insight:</strong> Holiday travel dominates domestic overnight trips in every quarter. Business travel forms a noticeably smaller share in the September and December quarters, as corporate activity slows over the Australian winter and festive season — while holiday travel holds steady across the year.</p>
     </div>
   </div>
 
-  <!-- SECTION 6: CONNECTED DOT + SMALL MULTIPLES -->
+  <!-- SECTION 6: DOT PLOT + SMALL MULTIPLES (vertical stack) -->
   <div class="section-light">
     <div class="container">
       <h2 class="section-title">6. Year on year and state by state — the detail behind the numbers</h2>
       <p class="section-desc">Comparing December Quarter 2024 to December Quarter 2025 reveals that most states held steady or grew slightly in visitor nights, but spending patterns diverged. The small multiples below show each state's full quarterly rhythm across 2025 — making seasonal differences immediately visible at a glance.</p>
+
       <div class="pure-g">
-        <div class="pure-u-1 pure-u-md-1-2">
+        <div class="pure-u-1">
           <div class="chart-wrap">
             <p class="chart-label">Visitor nights: Dec Q 2024 vs Dec Q 2025 — teal = growth, coral = decline</p>
             <div id="dot_plot"></div>
           </div>
         </div>
-        <div class="pure-u-1 pure-u-md-1-2">
+      </div>
+
+      <div class="pure-g" style="margin-top: 24px;">
+        <div class="pure-u-1">
           <div class="chart-wrap">
             <p class="chart-label">Domestic overnight trips by quarter — all states (2025)</p>
             <div id="small_multiples"></div>
           </div>
         </div>
       </div>
+
       <p class="chart-insight">&#128269; <strong>Key insight:</strong> NSW grew its December quarter visitor nights by 2.7% year on year while Western Australia also gained ground. The Northern Territory recorded the sharpest decline at -4.9%, which the small multiples confirm — its September quarter is far stronger, suggesting December visitors are shifting to other warm-weather destinations.</p>
     </div>
   </div>
@@ -187,13 +193,11 @@
         <div class="pure-u-1 pure-u-md-1-2">
           <h4>Data sources</h4>
           <p>
-            Tourism Research Australia — <em>Quarterly Domestic Statistics, December Quarter 2025.</em><br>
-            National Visitor Survey (NVS). Overnight trips, visitor nights and regional expenditure by state/territory.<br>
+            Tourism Research Australia — <em>Quarterly Domestic Statistics, December Quarter 2025;</em> National Visitor Survey (NVS). Overnight trips, visitor nights and regional expenditure by state/territory.<br>
             <a href="https://www.tra.gov.au/en/domestic/domestic-tourism-results" target="_blank">www.tra.gov.au/en/domestic/domestic-tourism-results</a>
           </p>
           <p>
-            Tourism Research Australia — <em>International Visitor Survey Results, December Quarter 2025.</em><br>
-            Trips, nights and spend by country of residence; by state/territory.<br>
+            Tourism Research Australia — <em>International Visitor Survey Results, December Quarter 2025.</em> Trips, nights and spend by country of residence; trips, nights and regional expenditure by state/territory.<br>
             <a href="https://www.tra.gov.au/en/international/international-tourism-results" target="_blank">www.tra.gov.au/en/international/international-tourism-results</a>
           </p>
           <p>
@@ -205,7 +209,7 @@
           <h4>About this visualisation</h4>
           <p>Created by <strong>Ishan</strong> for FIT2179 Data Visualisation 2, Monash University, Semester 1 2026.</p>
           <p>
-            AI tools (Claude by Anthropic) were used in the following limited capacity: improving grammar and sentence formation in written text, assisting with understanding studio\workshop materials and Vega-Lite concepts. All data selection, analytical interpretations, design decisions, visual storytelling, and conclusions are my own work.
+            AI tools (Claude by Anthropic) were used in the following limited capacity: improving grammar and sentence formation in written text, assisting with understanding studio workshop materials and Vega-Lite concepts, and generating Vega-Lite JSON code structures as a starting point. All data selection, analytical interpretations, design decisions, visual storytelling, and conclusions are my own work.
           </p>
           <p>Built with Vega-Lite v5, Pure.css, and hosted on GitHub Pages.</p>
         </div>
