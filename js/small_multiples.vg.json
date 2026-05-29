@@ -17,7 +17,7 @@
   },
   "spec": {
     "width": 220,
-    "height": 100,
+    "height": 120,
     "mark": {"type": "bar", "color": "#1a7a6e", "opacity": 0.85},
     "encoding": {
       "x": {
@@ -25,13 +25,24 @@
         "type": "ordinal",
         "sort": ["Mar Q 2025","Jun Q 2025","Sep Q 2025","Dec Q 2025"],
         "title": null,
-        "axis": {"labelAngle": -40, "labelFontSize": 9, "labelFont": "Lato"}
+        "axis": {
+          "labelAngle": -30,
+          "labelFontSize": 8,
+          "labelFont": "Lato",
+          "labelExpr": "replace(datum.label, ' Q ', ' Q\\n')"
+        }
       },
       "y": {
         "field": "trips",
         "type": "quantitative",
         "title": "Trips ('000)",
-        "axis": {"labelFontSize": 9, "titleFontSize": 9, "labelFont": "Lato", "titleFont": "Lato", "tickCount": 3}
+        "axis": {
+          "labelFontSize": 8,
+          "titleFontSize": 9,
+          "labelFont": "Lato",
+          "titleFont": "Lato",
+          "tickCount": 3
+        }
       },
       "tooltip": [
         {"field": "state", "type": "nominal", "title": "State"},
@@ -43,7 +54,7 @@
   "config": {
     "font": "Lato",
     "view": {"stroke": "#d0e4e1"},
-    "facet": {"spacing": 12},
+    "facet": {"spacing": 16},
     "axis": {"grid": false}
   }
 }
