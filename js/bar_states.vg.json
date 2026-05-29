@@ -3,34 +3,47 @@
   "width": "container",
   "height": 280,
   "data": {"url": "data/state_annual_2025.csv"},
-  "mark": "bar",
-  "encoding": {
-    "y": {
-      "field": "state",
-      "type": "nominal",
-      "sort": "-dom_nights_2025",
-      "title": null,
-      "axis": {"labelFont": "Lato", "labelFontSize": 12}
+  "layer": [
+    {
+      "mark": "bar",
+      "encoding": {
+        "y": {
+          "field": "state",
+          "type": "nominal",
+          "sort": "-x",
+          "title": null,
+          "axis": {"labelFont": "Lato", "labelFontSize": 12}
+        },
+        "x": {
+          "field": "dom_nights_2025",
+          "type": "quantitative",
+          "title": "Domestic visitor nights ('000)",
+          "axis": {"labelFont": "Lato", "titleFont": "Lato", "titleFontSize": 11}
+        },
+        "color": {
+          "field": "dom_nights_2025",
+          "type": "quantitative",
+          "scale": {"scheme": "tealblues"},
+          "legend": null
+        },
+        "tooltip": [
+          {"field": "state", "type": "nominal", "title": "State"},
+          {"field": "dom_nights_2025", "type": "quantitative", "title": "Visitor nights ('000)", "format": ",.1f"},
+          {"field": "dom_spend_2025", "type": "quantitative", "title": "Dom. spend ($M)", "format": ",.1f"},
+          {"field": "int_trips_2025", "type": "quantitative", "title": "Intl. visitors ('000)", "format": ",.1f"}
+        ]
+      }
     },
-    "x": {
-      "field": "dom_nights_2025",
-      "type": "quantitative",
-      "title": "Domestic visitor nights ('000)",
-      "axis": {"labelFont": "Lato", "titleFont": "Lato", "titleFontSize": 11}
-    },
-    "color": {
-      "field": "dom_nights_2025",
-      "type": "quantitative",
-      "scale": {"scheme": "tealblues"},
-      "legend": null
-    },
-    "tooltip": [
-      {"field": "state", "type": "nominal", "title": "State"},
-      {"field": "dom_nights_2025", "type": "quantitative", "title": "Visitor nights ('000)", "format": ",.1f"},
-      {"field": "dom_spend_2025", "type": "quantitative", "title": "Dom. spend ($M)", "format": ",.1f"},
-      {"field": "int_trips_2025", "type": "quantitative", "title": "Intl. visitors ('000)", "format": ",.1f"}
-    ]
-  },
+    {
+      "mark": {"type": "text", "align": "left", "dx": 5, "fontSize": 10, "fontStyle": "italic"},
+      "encoding": {
+        "y": {"field": "state", "type": "nominal", "sort": "-x"},
+        "x": {"field": "dom_nights_2025", "type": "quantitative"},
+        "text": {"field": "dom_nights_2025", "type": "quantitative", "format": ",.0f"},
+        "color": {"value": "#333"}
+      }
+    }
+  ],
   "config": {
     "font": "Lato",
     "view": {"stroke": null},
