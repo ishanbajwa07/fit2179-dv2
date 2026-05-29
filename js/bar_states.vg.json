@@ -8,7 +8,7 @@
     "y": {
       "field": "state",
       "type": "nominal",
-      "sort": {"field": "dom_nights_2025", "order": "ascending"},
+      "sort": "-dom_nights_2025",
       "title": null,
       "axis": {"labelFont": "Lato", "labelFontSize": 12}
     },
