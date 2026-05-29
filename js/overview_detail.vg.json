@@ -16,7 +16,7 @@
     {
       "width": "container",
       "height": 220,
-      "title": "All states — selected state highlighted",
+      "title": "Selected state — visitor spend by quarter ($M)",
       "mark": "bar",
       "encoding": {
         "x": {
@@ -68,17 +68,17 @@
           "axis": {"labelFont": "Lato", "titleFont": "Lato", "labelAngle": 0}
         },
         "y": {
-          "field": "nights",
+          "field": "spend",
           "type": "quantitative",
-          "title": "Visitor nights ('000)",
+          "title": "Visitor nights ($M)",
           "axis": {"labelFont": "Lato", "titleFont": "Lato"}
         },
         "color": {"value": "#1a7a6e"},
         "tooltip": [
           {"field": "state", "type": "nominal", "title": "State"},
           {"field": "quarter", "type": "nominal", "title": "Quarter"},
-          {"field": "nights", "type": "quantitative", "title": "Visitor nights ('000)", "format": ",.1f"},
-          {"field": "spend", "type": "quantitative", "title": "Spend ($M)", "format": ",.1f"}
+          {"field": "spend", "type": "quantitative", "title": "Spend ($M)", "format": ",.1f"},
+          {"field": "night", "type": "quantitative", "title": "Visitor nights ('000)", "format": ",.1f"}
         ]
       }
     }
