@@ -36,9 +36,8 @@
             "title": "Visitor nights ('000)",
             "labelFont": "Lato",
             "titleFont": "Lato",
-            "orient": "bottom"
-            "direction": "horizontal",
-            "gradientLength": 200
+            "orient": "bottom",
+            "direction": "horizontal"
           }
         },
         "tooltip": [
