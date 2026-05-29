@@ -12,12 +12,13 @@
       "labelFont": "Lato",
       "labelFontSize": 11,
       "labelFontWeight": "bold",
-      "labelColor": "#1a3a4a"
+      "labelColor": "#1a3a4a",
+      "labelLimit": 200
     }
   },
   "spec": {
     "width": 220,
-    "height": 120,
+    "height": 200,
     "mark": {"type": "bar", "color": "#1a7a6e", "opacity": 0.85},
     "encoding": {
       "x": {
@@ -26,10 +27,11 @@
         "sort": ["Mar Q 2025","Jun Q 2025","Sep Q 2025","Dec Q 2025"],
         "title": null,
         "axis": {
-          "labelAngle": -30,
+          "labelAngle": 0,
           "labelFontSize": 8,
           "labelFont": "Lato",
-          "labelExpr": "replace(datum.label, ' Q ', ' Q\\n')"
+          "labelLineHeight": 12,
+          "labelExpr": "split(datum.label, ' 2025')[0] + '\\n2025'"
         }
       },
       "y": {
