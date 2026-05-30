@@ -15,23 +15,23 @@
   "vconcat": [
     {
       "width": "container",
-      "height": 220,
-      "title": "Selected state — visitor spend by quarter ($M)",
-      "mark": "bar",
+      "height": 210,
+      "title": {"text": "Overview — total 2025 overnight trips by state (selected state highlighted)", "font": "Lato", "fontSize": 13, "anchor": "start", "color": "#1a3a4a"},
+      "mark": {"type": "bar"},
       "encoding": {
-        "x": {
-          "field": "quarter",
-          "type": "ordinal",
-          "sort": ["Mar Q 2025","Jun Q 2025","Sep Q 2025","Dec Q 2025"],
-          "title": "Quarter 2025",
-          "axis": {"labelFont": "Lato", "titleFont": "Lato", "labelAngle": 0}
-        },
         "y": {
+          "field": "state",
+          "type": "nominal",
+          "sort": "-x",
+          "title": null,
+          "axis": {"labelFont": "Lato", "labelFontSize": 12}
+        },
+        "x": {
+          "aggregate": "sum",
           "field": "trips",
           "type": "quantitative",
-          "stack": "zero",
-          "title": "Overnight trips ('000)",
-          "axis": {"labelFont": "Lato", "titleFont": "Lato"}
+          "title": "Total overnight trips ('000)",
+          "axis": {"labelFont": "Lato", "titleFont": "Lato", "titleFontSize": 11}
         },
         "color": {
           "field": "state",
@@ -40,25 +40,24 @@
             "domain": ["New South Wales","Victoria","Queensland","Western Australia","South Australia","Tasmania","Northern Territory","Australian Capital Territory"],
             "range": ["#1a7a6e","#4a90d9","#e8a838","#7b5ea7","#e06c56","#5da05d","#c96fbf","#aaaaaa"]
           },
-          "legend": {"title": "State / Territory", "labelFont": "Lato", "titleFont": "Lato"}
+          "legend": null
         },
         "opacity": {
           "condition": {"test": "datum.state == state_select", "value": 1},
-          "value": 0.25
+          "value": 0.3
         },
         "tooltip": [
           {"field": "state", "type": "nominal", "title": "State"},
-          {"field": "quarter", "type": "nominal", "title": "Quarter"},
-          {"field": "trips", "type": "quantitative", "title": "Trips ('000)", "format": ",.1f"}
+          {"aggregate": "sum", "field": "trips", "type": "quantitative", "title": "Total trips ('000)", "format": ",.0f"}
         ]
       }
     },
     {
       "width": "container",
-      "height": 160,
-      "title": "Selected state — visitor nights by quarter",
+      "height": 180,
+      "title": {"text": "Detail — selected state's visitor spend by quarter ($M)", "font": "Lato", "fontSize": 13, "anchor": "start", "color": "#1a3a4a"},
       "transform": [{"filter": "datum.state == state_select"}],
-      "mark": "bar",
+      "mark": {"type": "bar", "color": "#1a7a6e"},
       "encoding": {
         "x": {
           "field": "quarter",
@@ -70,15 +69,14 @@
         "y": {
           "field": "spend",
           "type": "quantitative",
-          "title": "Visitor nights ($M)",
+          "title": "Visitor spend ($M)",
           "axis": {"labelFont": "Lato", "titleFont": "Lato"}
         },
-        "color": {"value": "#1a7a6e"},
         "tooltip": [
           {"field": "state", "type": "nominal", "title": "State"},
           {"field": "quarter", "type": "nominal", "title": "Quarter"},
           {"field": "spend", "type": "quantitative", "title": "Spend ($M)", "format": ",.1f"},
-          {"field": "night", "type": "quantitative", "title": "Visitor nights ('000)", "format": ",.1f"}
+          {"field": "nights", "type": "quantitative", "title": "Visitor nights ('000)", "format": ",.1f"}
         ]
       }
     }
