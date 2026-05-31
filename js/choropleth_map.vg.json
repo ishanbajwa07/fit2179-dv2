@@ -51,27 +51,29 @@
     {
       "data": {
         "values": [
-          {"abbr": "WA",  "lon": 121.6,  "lat": -26.5},
-          {"abbr": "NT",  "lon": 133.5,  "lat": -19.5},
-          {"abbr": "QLD", "lon": 144.5,  "lat": -22.0},
-          {"abbr": "SA",  "lon": 135.5,  "lat": -29.5},
-          {"abbr": "NSW", "lon": 146.5,  "lat": -32.5},
-          {"abbr": "VIC", "lon": 144.8,  "lat": -37.0},
-          {"abbr": "TAS", "lon": 146.5,  "lat": -42.0},
-          {"abbr": "ACT", "lon": 149.1,  "lat": -35.5}
+          {"abbr": "WA",  "lon": 121.6, "lat": -26.5, "dark": false},
+          {"abbr": "NT",  "lon": 133.5, "lat": -19.5, "dark": false},
+          {"abbr": "QLD", "lon": 144.5, "lat": -22.0, "dark": true},
+          {"abbr": "SA",  "lon": 135.5, "lat": -29.5, "dark": false},
+          {"abbr": "NSW", "lon": 146.5, "lat": -32.5, "dark": true},
+          {"abbr": "VIC", "lon": 144.8, "lat": -37.0, "dark": true},
+          {"abbr": "TAS", "lon": 146.8, "lat": -42.2, "dark": true},
+          {"abbr": "ACT", "lon": 149.2, "lat": -35.4, "dark": true}
         ]
       },
       "mark": {
         "type": "text",
-        "fontSize": 11,
-        "fontWeight": "bold",
-        "fontStyle": "normal"
+        "fontSize": 12,
+        "fontWeight": "bold"
       },
       "encoding": {
         "longitude": {"field": "lon", "type": "quantitative"},
         "latitude": {"field": "lat", "type": "quantitative"},
         "text": {"field": "abbr", "type": "nominal"},
-        "color": {"value": "#1a3a4a"}
+        "color": {
+          "condition": {"test": "datum.dark", "value": "#ffffff"},
+          "value": "#1a3a4a"
+        }
       }
     }
   ],
