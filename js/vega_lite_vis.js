@@ -5,6 +5,10 @@ var specAreaChart = "js/area_chart.vg.json";
 vegaEmbed("#area_chart", specAreaChart, {actions: false})
     .then(function(result) {}).catch(console.error);
 
+var specHeatmap = "js/heatmap.vg.json";
+vegaEmbed("#heatmap", specHeatmap, {actions: false})
+    .then(function(result) {}).catch(console.error);
+
 var specChoropleth = "js/choropleth_map.vg.json";
 vegaEmbed("#choropleth_map", specChoropleth, {actions: false})
     .then(function(result) {}).catch(console.error);
