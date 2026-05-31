@@ -1,0 +1,56 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": "container",
+  "height": 280,
+  "data": {"url": "data/domestic_quarterly.csv"},
+  "mark": {"type": "rect", "cornerRadius": 3},
+  "encoding": {
+    "y": {
+      "field": "state",
+      "type": "nominal",
+      "sort": ["New South Wales","Victoria","Queensland","Western Australia","South Australia","Tasmania","Northern Territory","Australian Capital Territory"],
+      "title": null,
+      "axis": {
+        "labelFont": "Lato",
+        "labelFontSize": 12,
+        "labelLimit": 200
+      }
+    },
+    "x": {
+      "field": "quarter",
+      "type": "ordinal",
+      "sort": ["Mar Q 2025","Jun Q 2025","Sep Q 2025","Dec Q 2025"],
+      "title": "Quarter (2025)",
+      "axis": {
+        "labelFont": "Lato",
+        "titleFont": "Lato",
+        "labelAngle": 0,
+        "titleFontSize": 12
+      }
+    },
+    "color": {
+      "field": "nights",
+      "type": "quantitative",
+      "scale": {"scheme": "tealblues"},
+      "legend": {
+        "title": "Visitor nights ('000)",
+        "labelFont": "Lato",
+        "titleFont": "Lato",
+        "orient": "right",
+        "gradientLength": 200
+      }
+    },
+    "tooltip": [
+      {"field": "state", "type": "nominal", "title": "State"},
+      {"field": "quarter", "type": "nominal", "title": "Quarter"},
+      {"field": "nights", "type": "quantitative", "title": "Visitor nights ('000)", "format": ",.1f"},
+      {"field": "trips", "type": "quantitative", "title": "Trips ('000)", "format": ",.1f"},
+      {"field": "spend", "type": "quantitative", "title": "Spend ($M)", "format": ",.1f"}
+    ]
+  },
+  "config": {
+    "font": "Lato",
+    "view": {"stroke": null},
+    "axis": {"grid": false}
+  }
+}
