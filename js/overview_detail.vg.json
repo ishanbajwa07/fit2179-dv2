@@ -1,81 +1,87 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": "container",
-  "height": 380,
-  "projection": {"type": "mercator", "center": [133, -27], "scale": 700},
-  "layer": [
+  "data": {"url": "data/domestic_quarterly.csv"},
+  "params": [
     {
-      "data": {
-        "url": "js/australia_states.topojson",
-        "format": {"type": "topojson", "feature": "ne_10m_admin_1_states_provinces"}
-      },
-      "mark": {"type": "geoshape", "fill": "#e8e8e8", "stroke": "white", "strokeWidth": 1.5}
-    },
-    {
-      "data": {
-        "url": "js/australia_states.topojson",
-        "format": {"type": "topojson", "feature": "ne_10m_admin_1_states_provinces"}
-      },
-      "transform": [
-        {
-          "lookup": "properties.name",
-          "from": {
-            "data": {"url": "data/state_annual_2025.csv"},
-            "key": "state",
-            "fields": ["dom_nights_2025", "dom_spend_2025", "int_trips_2025"]
-          }
-        }
-      ],
-      "mark": "geoshape",
-      "encoding": {
-        "color": {
-          "field": "dom_nights_2025",
-          "type": "quantitative",
-          "scale": {"scheme": "tealblues"},
-          "legend": {
-            "title": "Visitor nights ('000)",
-            "labelFont": "Lato",
-            "titleFont": "Lato",
-            "orient": "bottom",
-            "direction": "horizontal"
-          }
-        },
-        "tooltip": [
-          {"field": "properties.name", "type": "nominal", "title": "State / Territory"},
-          {"field": "dom_nights_2025", "type": "quantitative", "title": "Dom. visitor nights ('000)", "format": ",.1f"},
-          {"field": "dom_spend_2025", "type": "quantitative", "title": "Dom. spend ($M)", "format": ",.1f"},
-          {"field": "int_trips_2025", "type": "quantitative", "title": "Intl. visitors ('000)", "format": ",.1f"}
-        ]
-      }
-    },
-    {
-      "data": {
-        "values": [
-          {"abbr": "WA",  "lon": 121.6, "lat": -26.5, "dark": false},
-          {"abbr": "NT",  "lon": 133.5, "lat": -19.5, "dark": false},
-          {"abbr": "QLD", "lon": 144.5, "lat": -22.0, "dark": true},
-          {"abbr": "SA",  "lon": 135.5, "lat": -29.5, "dark": false},
-          {"abbr": "NSW", "lon": 146.5, "lat": -32.5, "dark": true},
-          {"abbr": "VIC", "lon": 144.8, "lat": -37.0, "dark": true},
-          {"abbr": "TAS", "lon": 146.8, "lat": -42.2, "dark": true},
-          {"abbr": "ACT", "lon": 149.2, "lat": -35.4, "dark": true}
-        ]
-      },
-      "mark": {
-        "type": "text",
-        "fontSize": 12,
-        "fontWeight": "bold"
-      },
-      "encoding": {
-        "longitude": {"field": "lon", "type": "quantitative"},
-        "latitude": {"field": "lat", "type": "quantitative"},
-        "text": {"field": "abbr", "type": "nominal"},
-        "color": {
-          "condition": {"test": "datum.dark", "value": "#ffffff"},
-          "value": "#1a3a4a"
-        }
+      "name": "state_select",
+      "value": "New South Wales",
+      "bind": {
+        "input": "select",
+        "options": ["New South Wales","Victoria","Queensland","Western Australia","South Australia","Tasmania","Northern Territory","Australian Capital Territory"],
+        "name": "Select a state: "
       }
     }
   ],
-  "config": {"font": "Lato", "view": {"stroke": null}}
+  "vconcat": [
+    {
+      "width": "container",
+      "height": 220,
+      "title": "Selected state — overnight trips by quarter ('000)",
+      "mark": "bar",
+      "encoding": {
+        "x": {
+          "field": "quarter",
+          "type": "ordinal",
+          "sort": ["Mar Q 2025","Jun Q 2025","Sep Q 2025","Dec Q 2025"],
+          "title": "Quarter 2025",
+          "axis": {"labelFont": "Lato", "titleFont": "Lato", "labelAngle": 0}
+        },
+        "y": {
+          "field": "trips",
+          "type": "quantitative",
+          "stack": "zero",
+          "title": "Overnight trips ('000)",
+          "axis": {"labelFont": "Lato", "titleFont": "Lato"}
+        },
+        "color": {
+          "field": "state",
+          "type": "nominal",
+          "scale": {
+            "domain": ["New South Wales","Victoria","Queensland","Western Australia","South Australia","Tasmania","Northern Territory","Australian Capital Territory"],
+            "range": ["#1a7a6e","#4a90d9","#e8a838","#7b5ea7","#e06c56","#5da05d","#c96fbf","#aaaaaa"]
+          },
+          "legend": {"title": "State / Territory", "labelFont": "Lato", "titleFont": "Lato"}
+        },
+        "opacity": {
+          "condition": {"test": "datum.state == state_select", "value": 1},
+          "value": 0.25
+        },
+        "tooltip": [
+          {"field": "state", "type": "nominal", "title": "State"},
+          {"field": "quarter", "type": "nominal", "title": "Quarter"},
+          {"field": "trips", "type": "quantitative", "title": "Trips ('000)", "format": ",.1f"}
+        ]
+      }
+    },
+    {
+      "width": "container",
+      "height": 160,
+      "title": "Selected state — visitor spend by quarter ($M)",
+      "transform": [{"filter": "datum.state == state_select"}],
+      "mark": "bar",
+      "encoding": {
+        "x": {
+          "field": "quarter",
+          "type": "ordinal",
+          "sort": ["Mar Q 2025","Jun Q 2025","Sep Q 2025","Dec Q 2025"],
+          "title": "Quarter 2025",
+          "axis": {"labelFont": "Lato", "titleFont": "Lato", "labelAngle": 0}
+        },
+        "y": {
+          "field": "spend",
+          "type": "quantitative",
+          "title": "Visitor spend ($M)",
+          "axis": {"labelFont": "Lato", "titleFont": "Lato"}
+        },
+        "color": {"value": "#1a7a6e"},
+        "tooltip": [
+          {"field": "state", "type": "nominal", "title": "State"},
+          {"field": "quarter", "type": "nominal", "title": "Quarter"},
+          {"field": "spend", "type": "quantitative", "title": "Spend ($M)", "format": ",.1f"},
+          {"field": "nights", "type": "quantitative", "title": "Visitor nights ('000)", "format": ",.1f"}
+        ]
+      }
+    }
+  ],
+  "config": {"font": "Lato", "view": {"stroke": null}, "axis": {"grid": false}}
 }
